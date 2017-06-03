@@ -9,12 +9,28 @@ router.use("/imagesearch/:term", (req, res) => {
     imageUrls = db.get("imagesearch"),
     imageSearch = req.imageSearch
     
+    imageSearch.search('Steve Angello')
+	.then(images => {
+		/*
+		[{
+			"url": "http://steveangello.com/boss.jpg",
+			"type": "image/jpeg",
+			"width": 1024,
+			"height": 768,
+			"size": 102451,
+			"thumbnail": {
+				"url": "http://steveangello.com/thumbnail.jpg",
+				"width": 512,
+				"height": 512
+			}
+		}]
+		 */
+		 res.send(images)
+	});
+   
    imageUrls.insert({"term": req.params.term, "dateTime": new Date(Date.now())})
-   imageSearch(req.params.term, (results) =>{
-       console.log(results)
-       res.send("Test")
-   });
-     //res.send();
+  
+     
     
     
 })
