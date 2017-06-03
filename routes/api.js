@@ -17,7 +17,7 @@ router.use("/imagesearch/:term", (req, res) => {
            var newObj = {"url": obj.link, "snippet": obj.snippet, "thumbnail": obj.image.thumbnailLink, "context": obj.image.contextLink}
            parsedResults.push(newObj);
        })
-       res.send(results);
+       res.send(parsedResults);
        
    }, page, req.query.offset);
    
