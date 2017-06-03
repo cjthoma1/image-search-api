@@ -9,7 +9,7 @@ routes = require("./routes/api"),
 mongo = require("mongodb"),
 monk = require("monk"),
 db = monk(process.env.MONGOLAB_URI)
-// db = monk("localhost:27017/images")
+// db = monk(process.env.MONGOLAB)
 
 
 // Make our db accessible to our router
