@@ -8,13 +8,16 @@ port = process.env.PORT || '8080',
 routes = require("./routes/api"),
 mongo = require("mongodb"),
 monk = require("monk"),
-db = monk(process.env.MONGOLAB_URI)
-// db = monk(process.env.MONGOLAB)
+db = monk(process.env.MONGOLAB_URI),
+//db = monk(process.env.MONGOLAB),
+
+imageSearch = require('node-google-image-search');
 
 
 // Make our db accessible to our router
 app.use(function(req,res,next){
     req.db = db;
+    req.imageSearch = imageSearch
     next();
 });
 
