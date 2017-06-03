@@ -11,7 +11,7 @@ monk = require("monk"),
 db = monk(process.env.MONGOLAB_URI),
 //db = monk('localhost:27017/images'),
 
-imageSearch = require('node-google-image-search'),
+// imageSearch = require('node-google-image-search'),
 GoogleImages = require('google-images');
 
 
