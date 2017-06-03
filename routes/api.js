@@ -7,26 +7,19 @@ router.use("/imagesearch/:term", (req, res) => {
    
     var db = req.db,
     imageUrls = db.get("imagesearch"),
-    imageSearch = req.imageSearch
-    
-    imageSearch.search('Steve Angello')
-	.then(images => {
-		/*
-		[{
-			"url": "http://steveangello.com/boss.jpg",
-			"type": "image/jpeg",
-			"width": 1024,
-			"height": 768,
-			"size": 102451,
-			"thumbnail": {
-				"url": "http://steveangello.com/thumbnail.jpg",
-				"width": 512,
-				"height": 512
-			}
-		}]
-		 */
-		 res.send(images)
-	});
+    imageSearch = req.imageSearch,
+     page = req.query.page  ? (req.query.page * 10)-10 : 1;
+
+   imageSearch(req.params.term, (results) => {
+       var parsedResults = [];
+       
+       results.map((obj) => {
+           var newObj = {"url": obj.link, "snippet": obj.snippet, "thumbnail": obj.image.thumbnailLink, "context": obj.image.contextLink}
+           parsedResults.push(newObj);
+       })
+       res.send(results);
+       
+   }, page, req.query.offset);
    
    imageUrls.insert({"term": req.params.term, "dateTime": new Date(Date.now())})
   
