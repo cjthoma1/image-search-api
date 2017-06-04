@@ -25,18 +25,27 @@
                         <li>offset: Provide the number of search results you would like returned (1-10)</li>
                         <li>page: Get a page of 10 new results by incrementing the page number</li>
                     </ul>
+                <li>Use url/api/latest/imagesearch to see most recent search queries</li>
             </ul>
-           <h3>Example creation usage:</h3>
+           <h3>Example usage:</h3>
            <code>https://obscure-springs-63954.herokuapp.com/api/imagesearch/memes?offset=10</code><br/>
-           <code>https://obscure-springs-63954.herokuapp.com/api/imagesearch/memes?offset=10&page=2</code>
-           <h3>Example creation output</h3>
+           <code>https://obscure-springs-63954.herokuapp.com/api/imagesearch/memes?offset=10&page=2</code><br/>
+           <br/>
+           <code>https://obscure-springs-63954.herokuapp.com/api/latest/imagesearch</code>
+           <h3>Example search output</h3>
            <code>{
                 "url": "https://media3.giphy.com/media/oOTTyHRHj0HYY/200_s.gif",
                 "snippet": "Funny Memes GIFs - Find & Share on GIPHY",
                 "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSD1ix-wIvBmzqMNFOO4Miox5kXOX3GSUwGK7j39KIEmzcGsx_7CYtSWg",
                 "context": "https://giphy.com/search/funny-memes"
-                }...</code>
-           
+                }...</code><br/>
+                <br/>
+             
+                 <code>{
+                        "_id": "593240332563da2da565d16a",
+                        "term": "dogs",
+                        "dateTime": "2017-06-03T04:50:59.761Z"
+                        }...</code>
             </div>
         
          <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
