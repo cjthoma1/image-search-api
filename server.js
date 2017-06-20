@@ -18,8 +18,12 @@ app.use(express.static(path.resolve(__dirname, 'client')));
 // Make our db accessible to our router
 app.use(function(req,res,next){
     req.db = db;
-   
     req.imageSearch = imageSearch;
+    
+    //Header needed for control-origin-resource-sharing
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    
     next();
 });
 
